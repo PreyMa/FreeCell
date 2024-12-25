@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+    <script type="text/javascript" src="./module.js" defer></script>
+    <script type="text/javascript" src="./util.js" defer></script>
+    <script type="text/javascript" src="./lang.js" defer></script>
+    <script type="text/javascript" src="./settings.js" defer></script>
+    <script type="text/javascript" src="./elements.js" defer></script>
+    <script type="text/javascript" src="./card.js" defer></script>
+    <script type="text/javascript" src="./card-slice.js" defer></script>
+    <script type="text/javascript" src="./card-stack.js" defer></script>
+    <script type="text/javascript" src="./game.js" defer></script>
+    <script type="text/javascript" src="./main.js" defer></script>
+    <title>FreeCell</title>
+  </head>
+  <body>
+    <dialog id="new-game-modal">
+      <form method="dialog">
+        <h2 data-text="newGame"></h2>
+        <p data-text="startNewGame"></p>
+        <fieldset>
+          <button value="confirm" data-text="yes"></button>
+          <button value="cancel" data-text="no"></button>
+        </fieldset>
+      </form>
+    </dialog>
+    <dialog id="game-done-modal">
+      <form method="dialog">
+        <h2 data-text="youWon"></h2>
+        <p data-text="startNewGame"></p>
+        <fieldset>
+          <button value="confirm" data-text="ok"></button>
+        </fieldset>
+      </form>
+    </dialog>
+    <nav>
+      <button id="new-game-button" data-text="newGame">New Game</button>
+      <button id="undo-button" data-text="undo">Undo</button>
+      <div class="spacer"></div>
+      <button id="language-button">English</button>
+    </nav>
+  </body>
+</html>

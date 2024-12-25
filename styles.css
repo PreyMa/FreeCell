@@ -1,0 +1,116 @@
+html {
+  background-color: #269126;
+}
+
+body {
+  padding: 0px;
+  margin: 0;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+
+  .spacer {
+    flex-grow: 1;
+  }
+}
+
+button {
+  font-size: inherit;
+  padding: 0.3rem;
+  min-width: 4rem;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+main {
+  --card-size: 90;
+  --sprite-width: 181;
+  --sprite-height: 271;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+/** Card outline **/
+.card, .card-stack {
+  width: calc(var(--card-size)* 1px);
+  aspect-ratio: var(--sprite-width) / var(--sprite-height);
+  border-radius: calc(var(--card-size)* 0.1px);
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid black;
+  cursor: grab;
+
+  & > div {
+    width: calc(var(--sprite-width)* 1px);
+    height: calc(var(--sprite-height)* 1px);
+    background-image: url(./English_pattern_playing_cards_deck.svg.png);
+    background-position-x: calc(var(--sprite-x)* 1px);
+    background-position-y: calc(var(--sprite-y)* 1px);
+    transform: scale(calc(var(--card-size) / 181));
+    transform-origin: top left;
+  }
+}
+
+.card-stack {
+  position: relative;
+  border: 2px solid #0000;  /* Make border transparent so that things do not shift around */
+  
+  &:empty {
+    padding: 0px;
+    border: 2px dashed darkgray;
+  }
+
+  & > * {
+    --top-offset: 0px;
+
+    position: absolute;
+    top: var(--top-offset);
+
+    &:first-child {
+      position: relative;
+      top: unset;
+    }
+  }
+
+  /** Add a gap between the free and home stacks **/
+  &.free:has(+ .home) {
+    margin-right: 4rem;
+  }
+}
+
+dialog {
+  font-family: sans-serif;
+
+  fieldset {
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+
+  &::backdrop {
+    backdrop-filter: blur(2px);
+    background: #b7b7b745;
+  }
+}
